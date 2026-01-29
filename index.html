@@ -1,0 +1,370 @@
+html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoleyFest Vigo 2024 - Playa de Samil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3 { font-family: 'Oswald', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(249, 115, 22, 0.3)), url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #f97316;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+        }
+
+        .beach-card {
+            transition: transform 0.3s ease;
+        }
+        .beach-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .insta-grid-item:hover .insta-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+
+    <!-- Navegación -->
+    <nav class="bg-blue-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-wider flex items-center gap-2">
+                <i class="fas fa-volleyball-ball text-orange-500 animate-bounce"></i> VOLEYFEST VIGO
+            </div>
+            <div class="hidden md:flex space-x-6 uppercase font-medium text-sm">
+                <a href="#inicio" class="hover:text-orange-400 transition">Inicio</a>
+                <a href="#evento" class="hover:text-orange-400 transition">El Evento</a>
+                <a href="#tienda" class="hover:text-orange-400 transition">Tienda</a>
+                <a href="#instagram" class="hover:text-orange-400 transition">Instagram</a>
+            </div>
+            <div class="relative cursor-pointer" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart text-xl"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Héroe -->
+    <header id="inicio" class="hero-gradient h-[90vh] flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <div class="bg-orange-500 text-white px-4 py-1 rounded-full inline-block mb-4 font-bold tracking-widest uppercase text-sm">
+                10 de Julio - Samil, Vigo
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 uppercase italic drop-shadow-lg">TORNEO SAMIL 2024</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light drop-shadow-md">Vive la pasión del voleibol playa en el mejor escenario de Galicia. Deporte, sol y el mejor ambiente.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#tienda" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 inline-block">EQUÍPATE YA</a>
+                <a href="#evento" class="bg-white hover:bg-gray-100 text-blue-900 px-8 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 inline-block">VER DETALLES</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detalles del Evento -->
+    <section id="evento" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 border-l-4 border-orange-500 pl-4">EL EVENTO EN SAMIL</h2>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        El próximo <strong>10 de julio</strong>, la Playa de Samil en Vigo se convertirá en el epicentro del voleibol. Contaremos con 12 pistas profesionales, zona de hidratación gratuita, música en directo y premios para los ganadores. ¡Te esperamos temprano para el saque inicial!
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-900"><i class="fas fa-calendar-day text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Fecha</h4>
+                                <p class="text-gray-600">Miércoles, 10 de julio de 2024</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-900"><i class="fas fa-map-marker-alt text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Ubicación</h4>
+                                <p class="text-gray-600">Playa de Samil (Zona Canchas), Vigo</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-900"><i class="fas fa-clock text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold">Horario</h4>
+                                <p class="text-gray-600">Desde las 09:30h hasta el atardecer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl h-96 relative">
+                    <div class="absolute inset-0 bg-blue-200 flex flex-col items-center justify-center text-center p-8">
+                        <i class="fas fa-map-marked-alt text-6xl text-blue-900 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-blue-900 mb-2">Playa de Samil</h3>
+                        <p class="text-blue-800">Cancha principal - Vigo, Galicia</p>
+                        <div class="mt-4 bg-white p-2 rounded shadow text-sm font-mono text-gray-500">42.2128° N, 8.7758° W</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tienda -->
+    <section id="tienda" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10 text-center uppercase italic text-blue-900">Tienda Oficial Samil 2024</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden beach-card flex flex-col">
+                    <div class="h-64 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600" alt="Balón de Voleibol Playa" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Equipamiento</span>
+                        <h3 class="text-xl font-bold mt-1">Balón Playa Elite</h3>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-900">35.00€</span>
+                            <button onclick="addToCart('Balón Playa Elite', 35.00)" class="bg-blue-900 text-white p-3 rounded-xl hover:bg-orange-500 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden beach-card flex flex-col">
+                    <div class="h-64 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1511511450040-677116ff389e?w=600" alt="Camiseta de Voleibol" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Edición Vigo</span>
+                        <h3 class="text-xl font-bold mt-1">Tank Top "Samil 10/07"</h3>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-900">20.00€</span>
+                            <button onclick="addToCart('Tank Top Samil', 20.00)" class="bg-blue-900 text-white p-3 rounded-xl hover:bg-orange-500 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden beach-card flex flex-col">
+                    <div class="h-64 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1552061073-67056079b71e?w=600" alt="Gorra Deportiva" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Accesorios</span>
+                        <h3 class="text-xl font-bold mt-1">Gorra Pro-Sun</h3>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-900">15.00€</span>
+                            <button onclick="addToCart('Gorra Pro-Sun', 15.00)" class="bg-blue-900 text-white p-3 rounded-xl hover:bg-orange-500 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Actualizado -->
+    <section id="instagram" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h2 class="text-4xl font-bold text-blue-900 flex items-center gap-3">
+                        <i class="fab fa-instagram text-pink-600"></i> @VoleyFestVigo
+                    </h2>
+                    <p class="text-gray-600 mt-2">¡Síguenos y usa el hashtag <span class="font-bold text-blue-600">#VoleySamil2024</span>!</p>
+                </div>
+                <a href="#" class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition transform hover:scale-105">
+                    SEGUIR EN INSTAGRAM
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                <!-- Fotos de Instagram simuladas -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-md aspect-square bg-gray-100 insta-grid-item">
+                    <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400" alt="Post 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center gap-4 text-white insta-overlay">
+                        <span><i class="fas fa-heart"></i> 124</span>
+                        <span><i class="fas fa-comment"></i> 12</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-md aspect-square bg-gray-100 insta-grid-item">
+                    <img src="https://images.unsplash.com/photo-1592656670411-2918b76c6691?w=400" alt="Post 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center gap-4 text-white insta-overlay">
+                        <span><i class="fas fa-heart"></i> 89</span>
+                        <span><i class="fas fa-comment"></i> 5</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-md aspect-square bg-gray-100 insta-grid-item">
+                    <img src="https://images.unsplash.com/photo-1547347691-163695b215bb?w=400" alt="Post 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center gap-4 text-white insta-overlay">
+                        <span><i class="fas fa-heart"></i> 256</span>
+                        <span><i class="fas fa-comment"></i> 34</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-md aspect-square bg-gray-100 insta-grid-item">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400" alt="Post 4" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center gap-4 text-white insta-overlay">
+                        <span><i class="fas fa-heart"></i> 112</span>
+                        <span><i class="fas fa-comment"></i> 8</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-md aspect-square bg-gray-100 insta-grid-item">
+                    <img src="https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?w=400" alt="Post 5" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center gap-4 text-white insta-overlay">
+                        <span><i class="fas fa-heart"></i> 342</span>
+                        <span><i class="fas fa-comment"></i> 19</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-md aspect-square bg-gray-100 insta-grid-item">
+                    <img src="https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=400" alt="Post 6" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 flex items-center justify-center gap-4 text-white insta-overlay">
+                        <span><i class="fas fa-heart"></i> 167</span>
+                        <span><i class="fas fa-comment"></i> 21</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer id="contacto" class="bg-blue-950 text-white py-12">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">VOLEYFEST VIGO</h3>
+                <p class="text-gray-400">El evento de voleibol playa referente en las Rías Baixas. Pasión por el deporte desde el corazón de Vigo.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-orange-500">DÓNDE ESTAMOS</h4>
+                <p class="flex items-center gap-2 mb-2"><i class="fas fa-map-marker-alt"></i> Playa de Samil, s/n</p>
+                <p class="text-gray-400 text-sm">36212 Vigo, Pontevedra</p>
+                <p class="flex items-center gap-2 mt-4"><i class="fas fa-envelope"></i> vigo@voleyfest.com</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-orange-500">SÍGUENOS</h4>
+                <div class="flex gap-4 text-2xl">
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-blue-900 text-gray-500 text-xs tracking-widest uppercase">
+            &copy; 2024 VOLEYFEST VIGO - PLAYA DE SAMIL.
+        </div>
+    </footer>
+
+    <!-- Carrito -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-blue-900">Tu Compra</h3>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-black"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <div id="cart-items" class="space-y-4 max-h-60 overflow-y-auto mb-6 pr-2 text-sm">
+                <p class="text-gray-400 italic text-center py-4">Aún no has añadido nada</p>
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between text-xl font-bold mb-6">
+                    <span>Total:</span>
+                    <span id="cart-total" class="text-orange-500">0.00€</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold hover:bg-orange-600 transition shadow-lg">
+                    CONFIRMAR PEDIDO
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Notificación -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-blue-900 text-white px-8 py-4 rounded-2xl shadow-2xl translate-y-32 transition-transform duration-300 pointer-events-none z-[110] flex items-center gap-3 font-bold border-b-4 border-orange-500">
+        <i class="fas fa-check-circle text-orange-500"></i>
+        <span id="toast-msg">¡Producto añadido!</span>
+    </div>
+
+    <script>
+        let cart = [];
+        const cartCount = document.getElementById('cart-count');
+        const cartModal = document.getElementById('cart-modal');
+        const cartItemsDiv = document.getElementById('cart-items');
+        const cartTotalSpan = document.getElementById('cart-total');
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            showToast(`Añadido: ${name}`);
+        }
+
+        function updateCartUI() {
+            cartCount.innerText = cart.length;
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="text-gray-400 italic text-center py-4">El carrito está vacío</p>';
+                cartTotalSpan.innerText = '0.00€';
+                return;
+            }
+            cartItemsDiv.innerHTML = cart.map((item, index) => `
+                <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                    <div>
+                        <p class="font-bold text-blue-900">${item.name}</p>
+                        <p class="text-xs text-gray-500">${item.price.toFixed(2)}€</p>
+                    </div>
+                    <button onclick="removeItem(${index})" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            `).join('');
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotalSpan.innerText = `${total.toFixed(2)}€`;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            cartModal.classList.toggle('hidden');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-32');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32');
+            }, 2500);
+        }
+
+        function checkout() {
+            if (cart.length === 0) return alert("Añade algún producto primero");
+            alert("¡Pedido registrado para recoger en Samil el día del evento!");
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
